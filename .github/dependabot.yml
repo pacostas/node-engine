@@ -5,6 +5,24 @@ updates:
   directory: "/"
   schedule:
     interval: daily
+  ignore:
+    - dependency-name: "github.com/paketo-buildpacks/packit/v2"
+    - dependency-name: "github.com/cenkalti/backoff/v4"
+    - dependency-name: "github.com/cloudflare/circl"
+    - dependency-name: "github.com/cyphar/filepath-securejoin"
+    - dependency-name: "github.com/distribution/reference"
+    - dependency-name: "github.com/felixge/httpsnoop"
+    - dependency-name: "github.com/go-git/go-git/v5"
+    - dependency-name: "github.com/klauspost/compress"
+    - dependency-name: "github.com/knqyf263/go-rpmdb"
+    - dependency-name: "github.com/sassoftware/go-rpmutils"
+    - dependency-name: "github.com/shirou/gopsutil/v3"
+    - dependency-name: "github.com/shopspring/decimal"
+    - dependency-name: "github.com/spdx/tools-golang"
+    - dependency-name: "github.com/sylabs/sif/v2"
+    - dependency-name: "github.com/tklauser/go-sysconf"
+    - dependency-name: "google.golang.org/grpc"
+    - dependency-name: "google.golang.org/protobuf"
   allow:
   # Allow both direct and indirect updates for all packages
   - dependency-type: "all"
