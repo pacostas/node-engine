@@ -5,6 +5,12 @@ updates:
   directory: "/"
   schedule:
     interval: daily
+  ignore:
+    - dependency-name: "github.com/paketo-buildpacks/packit/v2"
+    - dependency-name: "github.com/cenkalti/backoff/v4"
+    - dependency-name: "github.com/cloudflare/circl"
+    - dependency-name: "github.com/cyphar/filepath-securejoin"
+
   allow:
   # Allow both direct and indirect updates for all packages
   - dependency-type: "all"
