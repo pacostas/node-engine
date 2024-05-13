@@ -5,7 +5,8 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-
+  ignore:
+    - dependency-name: "github.com/docker/docker"
   allow:
   # Allow both direct and indirect updates for all packages
   - dependency-type: "all"
