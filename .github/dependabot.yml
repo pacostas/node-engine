@@ -8,6 +8,8 @@ updates:
   ignore:
     - dependency-name: "github.com/docker/docker"
     - dependency-name: "github.com/sassoftware/go-rpmutils"
+    - dependency-name: "github.com/testcontainers/testcontainers-go"
+    - dependency-name: "github.com/vifraa/gopom"
   allow:
   # Allow both direct and indirect updates for all packages
   - dependency-type: "all"
