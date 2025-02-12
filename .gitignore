@@ -1,5 +1,9 @@
+!integration/testdata
 .DS_Store
 .idea
-.bin
-/bin
+/.bin
 /build
+/bin
+/linux
+/darwin
+/windows
