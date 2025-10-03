@@ -16,6 +16,12 @@ type VersionParser interface {
 type BuildPlanMetadata struct {
 	Version       string `toml:"version"`
 	VersionSource string `toml:"version-source"`
+
+	// Build denotes the dependency is needed at build-time.
+	Build bool `toml:"build"`
+
+	// Launch denotes the dependency is needed at runtime.
+	Launch bool `toml:"launch"`
 }
 
 func Detect(nvmrcParser, nodeVersionParser VersionParser) packit.DetectFunc {
@@ -79,6 +85,13 @@ func Detect(nvmrcParser, nodeVersionParser VersionParser) packit.DetectFunc {
 				},
 			})
 		}
+
+		requirements = append(requirements, packit.BuildPlanRequirement{
+			Name: Cpython,
+			Metadata: BuildPlanMetadata{
+				Build: true,
+			},
+		})
 
 		return packit.DetectResult{
 			Plan: packit.BuildPlan{
