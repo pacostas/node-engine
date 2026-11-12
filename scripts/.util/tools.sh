@@ -33,6 +33,8 @@ function util::tools::arch() {
         echo ""
       elif [[ "${1:-}" == "--format-amd64-x86_64" ]]; then
         echo "x86_64"
+      elif [[ "${1:-}" == "--format-amd64-x86-64" ]]; then
+        echo "x86-64"
       else
         echo "amd64"
       fi
@@ -42,6 +44,17 @@ function util::tools::arch() {
       util::print::error "Unknown Architecture \"$(uname -m)\""
       exit 1
   esac
+}
+
+function util::tools::repo-name() {
+  local root
+  root="${1}"
+
+  if [[ -n "${GITHUB_REPOSITORY:-}" ]]; then
+    printf '%s' "${GITHUB_REPOSITORY#*/}"
+  else
+    basename "${root}"
+  fi
 }
 
 function util::tools::path::export() {
@@ -167,7 +180,6 @@ function util::tools::pack::install() {
     if [[ "${pack_config_enable_experimental}" == "true" ]]; then
       "${dir}"/pack config experimental true
     fi
-
   else
     util::print::info "Using pack $("${dir}"/pack version)"
   fi
